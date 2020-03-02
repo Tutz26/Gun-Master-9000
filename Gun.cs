@@ -2,7 +2,7 @@ using System;
 
 namespace Gun_Master_9000{
 
-    class Gun {
+    class Gun : Target {
 
         string name;
         int capacity;
@@ -37,6 +37,16 @@ namespace Gun_Master_9000{
             return this.rounds;
         }
 
+
+        public void Shot() {
+
+        }
+
+        public bool IsDead() {
+
+            return false;
+
+        }
 
     }
 }

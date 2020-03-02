@@ -81,5 +81,23 @@ namespace Gun_Master_9000{
                     guns[1].Reload();
             }
 
+            [Test, Description("Try to shoot a dodging target.")]
+            public void DodgingTargetTest(){
+                    Character arwendariz = new Character("Arwendariz");
+                    Gun revolver = new Gun("Revolver",6);
+                    arwendariz.Equip(revolver);
+                
+                    Person pistiEly = new Person();
+
+                    arwendariz.Reload();
+
+                    pistiEly.Dodge();
+                    arwendariz.Shoot(pistiEly);
+                    Assert.That(pistiEly.IsDead(), Is.EqualTo(false));
+
+                    arwendariz.Shoot(pistiEly);
+                    Assert.That(pistiEly.IsDead(), Is.EqualTo(true));
+            }
+
     }
 }
