@@ -1,5 +1,6 @@
 using System;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace Gun_Master_9000{
     [TestFixture]
@@ -53,5 +54,32 @@ namespace Gun_Master_9000{
 
                 Assert.That(bug.IsDead(), Is.EqualTo(true));
          }
+
+            [Test, Description("Minigun can be used as a gun.")]
+            public void MinigunTest() {
+
+                    // Gun[] guns = new Gun[2];
+                    List<Gun> guns = new List<Gun>();
+
+                    Gun minigun = new Minigun("Minigun MK1", 3000);
+                    Gun revolver = new Gun("Revolver", 6);
+                    guns.Add(minigun);
+                    guns.Add(revolver);
+
+                    Bug bug = new Bug();
+
+                    guns[0].Shoot(bug);
+
+                    Assert.That(bug.IsDead(), Is.EqualTo(true));
+
+                    Assert.Throws<System.InvalidOperationException>(
+                        () => {
+                            guns[0].Reload();
+                        }
+
+                    );
+                    guns[1].Reload();
+            }
+
     }
 }
