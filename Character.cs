@@ -31,6 +31,12 @@ namespace Gun_Master_9000
 
         }
 
+        
+        public void Reload() {
+            if(this.gun == null) {
+                throw new System.InvalidOperationException("Character can't reload");
+             }
+                    this.gun.Reload();
+        }
     }
-
 }
