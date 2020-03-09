@@ -99,5 +99,22 @@ namespace Gun_Master_9000{
                     Assert.That(pistiEly.IsDead(), Is.EqualTo(true));
             }
 
+            [Test, Description("Shooting a target with multiple Lifes.")]
+            public void MultipleLifeTargetTest(){
+
+                    Character arwendariz = new Character("Arwendariz");
+                    Gun revolver = new Gun("Revolver",6);
+                    arwendariz.Equip(revolver);
+                
+                    Android Taquit = new Android();
+
+                    arwendariz.Reload();
+
+                    arwendariz.Shoot(Taquit);
+                    Assert.That(Taquit.IsDead(), Is.EqualTo(false));
+
+
+            }
+
     }
 }
