@@ -115,7 +115,7 @@ namespace Gun_Master_9000{
 
             }
 
-            [Test, Description("Shooting a target with multiple Lifes.")]
+            [Test, Description("Shooting a ninja student multiple times.")]
             public void NinjaStudentDodgeTest(){
 
                     Character arwendariz = new Character("Arwendariz");
@@ -133,6 +133,27 @@ namespace Gun_Master_9000{
                     arwendariz.Shoot(elVerguit);
 
                     Assert.That(elVerguit.IsDead(), Is.EqualTo(false));
+
+            }
+            
+            [Test, Description("Shooting a ninja master multiple times.")]
+            public void NinjaMasterDodgeTest(){
+
+                    Character arwendariz = new Character("Arwendariz");
+                    Gun revolver = new Gun("Revolver",6);
+                    arwendariz.Equip(revolver);
+                
+                    NinjaStudent elMatanoxCasiLvl100 = new NinjaStudent();
+
+                    arwendariz.Reload();
+
+                    arwendariz.Shoot(elMatanoxCasiLvl100);
+                    arwendariz.Reload();
+                    arwendariz.Shoot(elMatanoxCasiLvl100);
+                    arwendariz.Reload();
+                    arwendariz.Shoot(elMatanoxCasiLvl100);
+
+                    Assert.That(elMatanoxCasiLvl100.IsDead(), Is.EqualTo(false));
 
             }
 
