@@ -106,13 +106,33 @@ namespace Gun_Master_9000{
                     Gun revolver = new Gun("Revolver",6);
                     arwendariz.Equip(revolver);
                 
-                    Android Taquit = new Android();
+                    Android taquit = new Android();
 
                     arwendariz.Reload();
 
-                    arwendariz.Shoot(Taquit);
-                    Assert.That(Taquit.IsDead(), Is.EqualTo(false));
+                    arwendariz.Shoot(taquit);
+                    Assert.That(taquit.IsDead(), Is.EqualTo(false));
 
+            }
+
+            [Test, Description("Shooting a target with multiple Lifes.")]
+            public void NinjaStudentDodgeTest(){
+
+                    Character arwendariz = new Character("Arwendariz");
+                    Gun revolver = new Gun("Revolver",6);
+                    arwendariz.Equip(revolver);
+                
+                    NinjaStudent elVerguit = new NinjaStudent();
+
+                    arwendariz.Reload();
+
+                    arwendariz.Shoot(elVerguit);
+                    arwendariz.Reload();
+                    arwendariz.Shoot(elVerguit);
+                    arwendariz.Reload();
+                    arwendariz.Shoot(elVerguit);
+
+                    Assert.That(elVerguit.IsDead(), Is.EqualTo(false));
 
             }
 
